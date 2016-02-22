@@ -12,7 +12,7 @@ function CommonAjax(url, prams, func,method) {
     $.ajax({
         url:  url,
         type: method === undefined ? "POST" : 'get',
-        data: prams ? $.extend(prams,userId) : userId,
+        data: prams ? $.extend(userId,prams) : userId,
         cache: false,
         async: false,
         dataType: "json",
@@ -28,3 +28,4 @@ function CommonAjax(url, prams, func,method) {
         complete: function() {}
     });
 }
+
