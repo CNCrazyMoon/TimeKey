@@ -11,7 +11,7 @@ $(function() {
     var scrollDemo =  function  (typeId,isNew) {
         var createTime = $('#demo2 .list-container').find('li');
             createTime = createTime[createTime.length-1];
-        var createTimeStr = $(createTime).attr('activeTime');
+        var createTimeStr = $(createTime).attr('createTime');
         var $createTimeStr = createTimeStr ? createTimeStr: new Date().formatDate();
         CommonAjax("/ehospital/mobile/article/listByConditions.do",{
            actionType:'UP',
@@ -32,7 +32,7 @@ $(function() {
                     return;
                  }
                 for(var i = 0;i<len; i++){
-                    html +='<li class="item-content" activeTime="'+ rows[i].activeTime +'">' +
+                    html +='<li class="item-content" createTime="'+ rows[i].createTimeStr +'">' +
                             '<div class="item-inner">' +
                                 '<div class="item-title">' + rows[i].title +'</div>' +
                             '</div>' +
@@ -66,5 +66,6 @@ $(function() {
   });
   $.init();
   scrollDemo('0','new'); //进入页面时先加载一次
+  scrollDemo('0'); //无限滚动需要内容至少占满一页
 });
  

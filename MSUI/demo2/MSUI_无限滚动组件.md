@@ -78,7 +78,9 @@
 ```
 
 3.编写业务逻辑
+ * 无限滚动的前提是内容必须占满一页
 ```javascript
+
 //demo2
 $(function() {  
     //补充一个简单转换日期格式的方法
@@ -87,11 +89,11 @@ $(function() {
                 " "+[this.getHours(),this.getMinutes(),this.getSeconds()].join(":");
      };   
   
-    // 底部滚动加载 item列表方法
+    // 滚动加载 item列表方法
     var scrollDemo =  function  (typeId,isNew) {
         var createTime = $('#demo2 .list-container').find('li');
             createTime = createTime[createTime.length-1];
-        var createTimeStr = $(createTime).attr('activeTime');
+        var createTimeStr = $(createTime).attr('createTime');
         var $createTimeStr = createTimeStr ? createTimeStr: new Date().formatDate();
         CommonAjax("/ehospital/mobile/article/listByConditions.do",{
            actionType:'UP',
@@ -112,7 +114,7 @@ $(function() {
                     return;
                  }
                 for(var i = 0;i<len; i++){
-                    html +='<li class="item-content" activeTime="'+ rows[i].activeTime +'">' +
+                    html +='<li class="item-content" createTime="'+ rows[i].createTimeStr +'">' +
                             '<div class="item-inner">' +
                                 '<div class="item-title">' + rows[i].title +'</div>' +
                             '</div>' +
@@ -146,8 +148,9 @@ $(function() {
   });
   $.init();
   scrollDemo('0','new'); //进入页面时先加载一次
+  scrollDemo('0'); //无限滚动需要内容至少占满一页
 });
-
+ 
 ```
 
 4.业务逻辑编写完成之后依照需求移除不需要的页面元素, div.content 修改如下
