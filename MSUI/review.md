@@ -3,9 +3,9 @@
 
 ![语义化标签](semantics.png)
 
-> [MDN 中对 "<label>" 的解释(英文)](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/label)
+> [MDN 中对 label标签 的解释(英文)](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/label)
 
-> [MDN 中对 "<label>" 的解释(中文)](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/label)
+> [MDN 中对 label标签 的解释(中文)](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/label)
 
 2 可优化代码
 ```
